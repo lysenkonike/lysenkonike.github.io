@@ -3,22 +3,19 @@ var languages = {
             ['', '', 'двадцать','тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'], 
             ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'],
             ['тысячa', 'тысячи', 'тысяч'],
-            ['миллион', 'миллиона', 'миллионов'],
             ['одна' , 'две']],
 
     'uk':[['', 'один', 'два', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять', 'десять', 'одинадцять', 'дванадцять', 'тринадцять', 'чотирнадцять', 'п\'ятнадцять', 'шістнадцять', 'сімнадцять', 'вісімнадцять', 'дев\'ятнадцять'], 
             ['', '', 'двадцять','тридцять', 'сорок', 'п\'ятдесят', 'шістдесят', 'сімдесят', 'вісімдесят', 'дев\'яносто'], 
             ['', 'сто', 'двісті', 'триста', 'чотириста', 'п\'ятсот', 'шістсот', 'сімсот', 'вісімсот', 'дев\'ятсот'],
             ['тисяча', 'тисячі', 'тисяч'],
-            ['мільйон', 'мільйони', 'мільйонів'],
             ['однa' , 'двi']],
 
     'en':[['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'], 
             ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'], 
             ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'],
-            ['thousand', 'thousands', 'thousand',],// тоже не знаю
-            ['million', 'million', 'million'],
-            ['one' , 'two']] // c английским проблеммы, тут слогать не знаю 
+            ['thousand', 'thousands', 'thousand',],// тоже не знаю слогать
+            ['one' , 'two']] // на гонево похоже )), а че делать
 }
 
 function translateThreeDigitNumber(number, lang){
@@ -59,7 +56,7 @@ function splitNumber(number){
     return (number+'').split(/(?=(?:\d{3})+(?!\d))/);
 }
 
-function translateAllNumbers(number, lang){ // боков много, вообщем )), тысячные с нулями пишет тысяч ... ну и первые цифры не слагает
+function translateAllNumbers(number, lang){
     if (isNaN(parseInt(number)) || number === null || number === true || number === false){
         return '';
     }
@@ -81,21 +78,13 @@ function translateAllNumbers(number, lang){ // боков много, вообщ
     var numArray = splitNumber(number);
 
     if (numArray.length == 1){
-        translation = translateThreeDigitNumber(numArray[0], lang);
+        var translation = translateThreeDigitNumber(numArray[0], lang);
     } else if (numArray.length == 2) {
         translation = translateThreeDigitNumber(numArray[0], lang);
         translation += ' ' + declofNum(numArray[0], words[3]) + ' ';
         translation += translateThreeDigitNumber(numArray[1], lang);
-        translation = translation.replace(words[0][1]+ ' ', words[5][0]+ ' ');
-        translation = translation.replace(words[0][2]+ ' ', words[5][1]+ ' ');
-
-
-    } else if (numArray.length == 3 && numArray[1] !== '000') {
-        translation = translateThreeDigitNumber(numArray[0], lang);
-        translation += ' ' + declofNum(numArray[0], words[4]) + ' ';
-        translation += translateThreeDigitNumber(numArray[1], lang);
-        translation += ' ' + declofNum(numArray[1], words[3]) + ' ';
-        translation += translateThreeDigitNumber(numArray[2], lang);
+        translation = translation.replace(words[0][1]+ ' ', words[4][0]+ ' ');
+        translation = translation.replace(words[0][2]+ ' ', words[4][1]+ ' ');
     } else translation = '';
 
     return translation;
