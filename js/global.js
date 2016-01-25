@@ -2,17 +2,20 @@ var languages = {
     'ru':[['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'], 
             ['', '', 'двадцать','тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'], 
             ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'],
-            ['тысяч', 'миллионов']],
+            ['тысячa', 'тысячи', 'тысяч'],
+            ['миллион', 'миллиона', 'миллионов']],
 
     'uk':[['', 'один', 'два', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять', 'десять', 'одинадцять', 'дванадцять', 'тринадцять', 'чотирнадцять', 'п\'ятнадцять', 'шістнадцять', 'сімнадцять', 'вісімнадцять', 'дев\'ятнадцять'], 
             ['', '', 'двадцять','тридцять', 'сорок', 'п\'ятдесят', 'шістдесят', 'сімдесят', 'вісімдесят', 'дев\'яносто'], 
             ['', 'сто', 'двісті', 'триста', 'чотириста', 'п\'ятсот', 'шістсот', 'сімсот', 'вісімсот', 'дев\'ятсот'],
-            ['тисяч', 'мільйонів']],
+            ['тисяча', 'тисячі', 'тисяч'],
+            ['мільйон', 'мільйони', 'мільйонів']],
 
     'en':[['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'], 
             ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'], 
             ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'],
-            ['thousand', 'millions']]
+            ['thousand', 'thousands', 'thousand',],// тоже не знаю
+            ['million', 'million', 'million']] // c английским проблеммы, тут слогать не знаю 
 }
 
 function translateThreeDigitNumber(number, lang){
@@ -53,7 +56,7 @@ function splitNumber(number){
     return (number+'').split(/(?=(?:\d{3})+(?!\d))/);
 }
 
-function translateAllNumbers(number, lang){ // Еще одно гонево ))
+function translateAllNumbers(number, lang){ // боков много, вообщем )), тысячные с нулями пишет тысяч ... ну и первые цифры не слагает
     if (isNaN(parseInt(number)) || number === null || number === true || number === false){
         return '';
     }
@@ -78,15 +81,22 @@ function translateAllNumbers(number, lang){ // Еще одно гонево ))
         translation = translateThreeDigitNumber(numArray[0], lang);
     } else if (numArray.length == 2) {
         translation = translateThreeDigitNumber(numArray[0], lang);
-        translation += ' ' + words[3][0] + ' ';
+        translation += ' ' + declofNum(numArray[0], words[3]) + ' ';
         translation += translateThreeDigitNumber(numArray[1], lang);
     } else if (numArray.length == 3) {
         translation = translateThreeDigitNumber(numArray[0], lang);
-        translation += ' ' + words[3][1] + ' ';
+        translation += ' ' + declofNum(numArray[0], words[4]) + ' ';
         translation += translateThreeDigitNumber(numArray[1], lang);
-        translation += ' ' + words[3][0] + ' ';
+        translation += ' ' + declofNum(numArray[1], words[3]) + ' ';
         translation += translateThreeDigitNumber(numArray[2], lang);
     } else translation = '';
 
     return translation;
 }
+
+function declofNum(number, titles){ // перевод тысяча, тысячи, тысяч ....
+    cases = [2, 0, 1, 1, 1, 2];
+    return titles[ (number%100>4 && number%100<20) ? 2 :
+    cases[(number%10<5) ? number%10 : 5] ];
+}
+

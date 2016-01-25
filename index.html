@@ -9,7 +9,7 @@
 <body>
 	<form name="myForm" role="form">
 		<div class="form-group">
-		   <input name="number" class="form-control input-sm" style="width:50%" type="text" oninput="document.getElementById('translation_ru').textContent = translateThreeDigitNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateThreeDigitNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateThreeDigitNumber(this.value, 'en')">
+			<input name="number" class="form-control input-sm" style="width:50%" type="text" oninput="document.getElementById('translation_ru').textContent = translateAllNumbers(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateAllNumbers(this.value, 'uk'); document.getElementById('translation_en').textContent = translateAllNumbers(this.value, 'en')">
 		</div>
 	</form>
 	<p id="translation_ru"></p>
