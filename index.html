@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Тranslate Number</title>
+	<link rel="stylesheet" href="vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/bootstrap-theme1.css">
+</head>
+<body>
+	<form name="myForm" role="form">
+		<div class="form-group">
+		   <input name="number" class="form-control input-sm" style="width:50%" type="text" oninput="document.getElementById('translation_ru').textContent = translateThreeDigitNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateThreeDigitNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateThreeDigitNumber(this.value, 'en')">
+		</div>
+	</form>
+	<p id="translation_ru"></p>
+	<p id="translation_uk"></p>
+	<p id="translation_en"></p>
+	<script src="js/global.js"></script>
+</body>
+</html>
