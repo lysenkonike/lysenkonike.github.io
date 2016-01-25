@@ -78,7 +78,7 @@ function translateAllNumbers(number, lang){
     var numArray = splitNumber(number);
 
     if (numArray.length == 1){
-        var translation = translateThreeDigitNumber(numArray[0], lang);
+        translation = translateThreeDigitNumber(numArray[0], lang);
     } else if (numArray.length == 2) {
         translation = translateThreeDigitNumber(numArray[0], lang);
         translation += ' ' + declofNum(numArray[0], words[3]) + ' ';
