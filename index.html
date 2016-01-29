@@ -6,15 +6,19 @@
 	<link rel="stylesheet" href="vendor/bootstrap.min.css">
 	<link rel="stylesheet" href="vendor/bootstrap-theme1.css">
 </head>
-<body>
-	<form name="myForm" role="form">
-		<div class="form-group">
-		   <input name="number" class="form-control input-sm" style="width:50%" type="text" oninput="document.getElementById('translation_ru').textContent = translateThreeDigitNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateThreeDigitNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateThreeDigitNumber(this.value, 'en')">
-		</div>
+<body style="padding:20px; background-color:#232;">
+	<form>
+		<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');">
+		<br>
 	</form>
-	<p id="translation_ru"></p>
-	<p id="translation_uk"></p>
-	<p id="translation_en"></p>
+	<div class="h4">
+		<p id="translation_ru" class="text-info"></p>
+		<p id="translation_uk" class="text-info"></p>
+		<p id="translation_en" class="text-info"></p>
+	</div>
 	<script src="js/global.js"></script>
+	<script src="js/translateThreeDigitNumber.js"></script>
+	<script src="js/splitNumber.js"></script>
+	<script src="js/isValid.js"></script>
 </body>
 </html>

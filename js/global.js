@@ -1,46 +1,44 @@
 var languages = {
-    'ru':[['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'], 
-            ['', '', 'двадцать','тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'], 
-            ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот']],
+    'ru':{ 
+        'words':[['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'], 
+                ['', '', 'двадцать','тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'], 
+                ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'],
+                ['', '', 'тысяча', 'миллион', 'миллиард', 'триллион']]
+    },
 
-    'uk':[['', 'один', 'два', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять', 'десять', 'одинадцять', 'дванадцять', 'тринадцять', 'чотирнадцять', 'п\'ятнадцять', 'шістнадцять', 'сімнадцять', 'вісімнадцять', 'дев\'ятнадцять'], 
-            ['', '', 'двадцять','тридцять', 'сорок', 'п\'ятдесят', 'шістдесят', 'сімдесят', 'вісімдесят', 'дев\'яносто'], 
-            ['', 'сто', 'двісті', 'триста', 'чотириста', 'п\'ятсот', 'шістсот', 'сімсот', 'вісімсот', 'дев\'ятсот']],
-
-    'en':[['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'], 
-            ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'], 
-            ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred']]
+    'uk':{
+        'words':[['', 'один', 'два', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять', 'десять', 'одинадцять', 'дванадцять', 'тринадцять', 'чотирнадцять', 'п\'ятнадцять', 'шістнадцять', 'сімнадцять', 'вісімнадцять', 'дев\'ятнадцять'], 
+                ['', '', 'двадцять','тридцять', 'сорок', 'п\'ятдесят', 'шістдесят', 'сімдесят', 'вісімдесят', 'дев\'яносто'], 
+                ['', 'сто', 'двісті', 'триста', 'чотириста', 'п\'ятсот', 'шістсот', 'сімсот', 'вісімсот', 'дев\'ятсот'],
+                ['', '', 'тисяча', 'мільйон', 'мільярд', 'трильйон']]
+    },
+    
+    'en':{
+        'words':[['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'], 
+                ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'], 
+                ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'],
+                ['', '', 'thousand', 'million', 'billion', 'trillion']]
+    }
 }
 
-function translateThreeDigitNumber(number, lang){
-    if (!(number > 0 && number < 1000) || isNaN(parseInt(number)) || number === null || number === true || number === false){
+
+
+function translateNumber(number, lang){
+    if(!isValid(number) || number.toString().length > 15){
         return '';
     }
-    
-    var translation = '';
-    var words = [];
-    number = parseInt(number).toString();
-    
-    switch (lang){
-        case 'ru':
-           words = languages.ru;
-        break;
-        case 'en':
-            words = languages.en;
-        break;
-        case 'uk':
-            words = languages.uk;
-        break;
+
+    if(Object.keys(languages).indexOf(lang) !== -1){
+        words = languages[lang].words;
     }
 
-    if (number < 20){
-        translation = words[0][number];
-    } else if (number > 19 && number < 100){
-        translation = words[1][number[0]] + ' ' + words[0][number[1]];
-    } else if (number > 99 && number%100 < 20){
-        translation = words[2][number[0]] + ' ' + words[0][number%100];
-    } else if (number > 99 && number%100 > 19){
-        translation = words[2][number[0]] + ' ' + words[1][number[1]] + ' ' + words[0][number[2]];
+    var translation = '';
+    number = parseInt(number).toString();
+    var numArray = splitNumber(number);
+
+    for (var i = 0; i < numArray.length; i++){
+        translation += translateThreeDigitNumber(numArray[i], lang);
+        translation += numArray[i] !== '000' ? ' ' + words[3][numArray.length - i] + ' ' : '';
     }
 
     return translation;
