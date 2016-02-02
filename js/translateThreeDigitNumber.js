@@ -1,33 +1,34 @@
-function translateThreeDigitNumber(number, lang){
-    if(!isValid(number) || !(number > 0 && number < 1000)){
+function translateThreeDigitNumber(number, lang) {
+    if (!isValid(number) || !(number > 0 && number < 1000)) {
         return '';
     }
-   
+
     var translation = '';
     var words = [];
     number = parseInt(number).toString();
-    
-    switch (lang){
+
+    switch (lang) {
         case 'ru':
-           words = languages.ru.words;
-        break;
+            words = languages.ru.words;
+            break;
         case 'en':
             words = languages.en.words;
-        break;
+            break;
         case 'uk':
             words = languages.uk.words;
-        break;
+            break;
     }
 
-    if (number < 20){
+    if (number < 20) {
         translation = words[0][number];
-    } else if (number > 19 && number < 100){
+    } else if (number > 19 && number < 100) {
         translation = words[1][number[0]] + ' ' + words[0][number[1]];
-    } else if (number > 99 && number%100 < 20){
-        translation = words[2][number[0]] + ' ' + words[0][number%100];
-    } else if (number > 99 && number%100 > 19){
+    } else if (number > 99 && number % 100 < 20) {
+        translation = words[2][number[0]] + ' ' + words[0][number % 100];
+    } else if (number > 99 && number % 100 > 19) {
         translation = words[2][number[0]] + ' ' + words[1][number[1]] + ' ' + words[0][number[2]];
     }
 
     return translation;
 }
+
