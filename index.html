@@ -5,16 +5,17 @@
 	<title>Тranslate Number</title>
 	<link rel="stylesheet" href="vendor/bootstrap.min.css">
 	<link rel="stylesheet" href="vendor/bootstrap-theme1.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body style="padding:20px; background-color:#232;">
 	<form>
-		<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');">
+		<input name="number" class="form-control input-lg" style="font-family: Verdana,Arial" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');">
 		<br>
 	</form>
-	<div class="h4">
-		<p id="translation_ru" class="text-info"></p>
-		<p id="translation_uk" class="text-info"></p>
-		<p id="translation_en" class="text-info"></p>
+	<div>
+		<p id="translation_ru" class="translation"></p>
+		<p id="translation_uk" class="translation"></p>	
+		<p id="translation_en" class="translation"></p>
 	</div>
 	<script src="js/global.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>
