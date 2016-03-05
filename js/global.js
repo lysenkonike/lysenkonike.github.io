@@ -51,8 +51,8 @@ var languages = {
             translation = translation.replace(/billion and one hundred/, 'billion one hundred').replace(/billion and two hundred/, 'billion two hundred').replace(/billion and three hundred/, 'billion three hundred').replace(/billion and four hundred/, 'billion four hundred').replace(/billion and five hundred/, 'billion five hundred').replace(/billion and six hundred/, 'billion six hundred').replace(/billion and seven hundred/, 'billion seven hundred').replace(/billion and eight hundred/, 'billion eight hundred').replace(/billion and nine hundred/, 'billion nine hundred');
             translation = translation.replace(/trillion and one hundred/, 'trillion one hundred').replace(/trillion and two hundred/, 'trillion two hundred').replace(/trillion and three hundred/, 'trillion three hundred').replace(/trillion and four hundred/, 'trillion four hundred').replace(/trillion and five hundred/, 'trillion five hundred').replace(/trillion and six hundred/, 'trillion six hundred').replace(/trillion and seven hundred/, 'trillion seven hundred').replace(/trillion and eight hundred/, 'trillion eight hundred').replace(/trillion and nine hundred/, 'trillion nine hundred');
             translation = translation.replace(/ and $/, '');
+            
             return translation;
-
         }
     }
 }
