@@ -14,6 +14,9 @@ function translateThreeDigitNumber(number, lang) {
         case 'en':
             words = languages.en.words;
             break;
+        case 'gb':
+            words = languages.gb.words;
+            break;
         case 'uk':
             words = languages.uk.words;
             break;

@@ -9,13 +9,14 @@
 </head>
 <body style="padding:20px; background-color:#232;">
 	<form>
-		<input name="number" class="form-control input-lg" style="font-family: Verdana,Arial" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');">
+		<input name="number" class="form-control input-lg" style="font-family: Verdana,Arial" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en'); document.getElementById('translation_gb').textContent = translateNumber(this.value, 'gb');">
 		<br>
 	</form>
 	<div>
 		<p id="translation_ru" class="translation"></p>
 		<p id="translation_uk" class="translation"></p>	
 		<p id="translation_en" class="translation"></p>
+		<p id="translation_gb" class="translation"></p>
 	</div>
 	<script src="js/global.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>

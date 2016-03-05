@@ -36,6 +36,24 @@ var languages = {
             ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'],
             ['', '', 'thousand', 'million', 'billion', 'trillion']
         ]
+    },
+    gb: {
+        words: [
+            ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'],
+            ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
+            ['', 'one hundred and', 'two hundred and', 'three hundred and', 'four hundred and', 'five hundred and', 'six hundred and', 'seven hundred and', 'eight hundred and', 'nine hundred and'],
+            ['', '', 'thousand and', 'million and', 'billion and', 'trillion and']
+        ],
+        fixCases: function(translation) {
+            translation = translation.replace(/and  thousand/, 'thousand').replace(/and  million/, 'million').replace(/and  billion/, 'billion').replace(/and  trillion/, 'trillion');
+            translation = translation.replace(/thousand and one hundred/, 'thousand one hundred').replace(/thousand and two hundred/, 'thousand two hundred').replace(/thousand and three hundred/, 'thousand three hundred').replace(/thousand and four hundred/, 'thousand four hundred').replace(/thousand and five hundred/, 'thousand five hundred').replace(/thousand and six hundred/, 'thousand six hundred').replace(/thousand and seven hundred/, 'thousand seven hundred').replace(/thousand and eight hundred/, 'thousand eight hundred').replace(/thousand and nine hundred/, 'thousand nine hundred');
+            translation = translation.replace(/million and one hundred/, 'million one hundred').replace(/million and two hundred/, 'million two hundred').replace(/million and three hundred/, 'million three hundred').replace(/million and four hundred/, 'million four hundred').replace(/million and five hundred/, 'million five hundred').replace(/million and six hundred/, 'million six hundred').replace(/million and seven hundred/, 'million seven hundred').replace(/million and eight hundred/, 'million eight hundred').replace(/million and nine hundred/, 'million nine hundred');
+            translation = translation.replace(/billion and one hundred/, 'billion one hundred').replace(/billion and two hundred/, 'billion two hundred').replace(/billion and three hundred/, 'billion three hundred').replace(/billion and four hundred/, 'billion four hundred').replace(/billion and five hundred/, 'billion five hundred').replace(/billion and six hundred/, 'billion six hundred').replace(/billion and seven hundred/, 'billion seven hundred').replace(/billion and eight hundred/, 'billion eight hundred').replace(/billion and nine hundred/, 'billion nine hundred');
+            translation = translation.replace(/trillion and one hundred/, 'trillion one hundred').replace(/trillion and two hundred/, 'trillion two hundred').replace(/trillion and three hundred/, 'trillion three hundred').replace(/trillion and four hundred/, 'trillion four hundred').replace(/trillion and five hundred/, 'trillion five hundred').replace(/trillion and six hundred/, 'trillion six hundred').replace(/trillion and seven hundred/, 'trillion seven hundred').replace(/trillion and eight hundred/, 'trillion eight hundred').replace(/trillion and nine hundred/, 'trillion nine hundred');
+            translation = translation.replace(/ and $/, '');
+            return translation;
+
+        }
     }
 }
 
