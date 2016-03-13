@@ -34,4 +34,3 @@ function translateThreeDigitNumber(number, lang) {
 
     return translation;
 }
-

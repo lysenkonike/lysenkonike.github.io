@@ -10,7 +10,7 @@
 <body class="well">
 	<h1 class="text-center text-primary">Translate Number</h1>
 	<form>
-		<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" oninput="document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru'); document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk'); document.getElementById('translation_en_us').textContent = translateNumber(this.value, 'en-us'); document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');">
+		<input name="number" id="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число">
 		<br>
 	</form>
 	<div class="well">
@@ -20,6 +20,8 @@
 		<p id="translation_en" class="well"></p>
 	</div>
 	<script src="js/global.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/translateNumber.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>
 	<script src="js/splitNumber.js"></script>
 	<script src="js/isValid.js"></script>
