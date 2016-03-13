@@ -1,5 +1,5 @@
 function translateNumber(number, lang) {
-    if (!isValid(number) || number.toString().length > 21) {
+    if (!isValid(number) || number.toString().length > 21 || /0+/.test(number)) {
         return '';
     }
 
@@ -11,7 +11,6 @@ function translateNumber(number, lang) {
     }
 
     var translation = '';
-    number = parseInt(number).toString();
     var numArray = splitNumber(number);
 
     for (var i = 0; i < numArray.length; i++) {
