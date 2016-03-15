@@ -4,26 +4,40 @@
 	<meta charset="UTF-8">
 	<title>Тranslate Number</title>
 	<link rel="stylesheet" href="vendor/bootstrap.min.css">
-	<link rel="stylesheet" href="vendor/bootstrap-theme4.css">
+	<link rel="stylesheet" id="theme-link" href="vendor/yeti-theme.css">
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body class="well">
-	<h1 class="text-center text-primary">Translate Number</h1>
+	<div class="form-group col-xs-2 col-xs-offset-10">
+		<label class="control-label">Theme</label>
+		<select class="form-control" name="selectTheme">
+			<option value="yeti">Yeti</option>
+			<option value="simplex">Simplex</option>
+			<option value="cyborg">Cyborg</option>
+			<option value="superhero">Superhero</option>
+			<option value="united">United</option>
+			<option value="slate">Slate</option>
+			<option value="darkly">Darkly</option>
+			<option value="spacelab">Spacelab</option>
+		</select>
+	</div>
+	<h1 class="h1 text-center text-primary">Translate Number</h1>
+	<br>
 	<form>
 		<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число">
-		<br>
 	</form>
+	<br>
 	<div class="well">
-		<p id="translation_ru" class="well"></p>
-		<p id="translation_uk" class="well"></p>	
-		<p id="translation_en_us" class="well"></p>
-		<p id="translation_en" class="well"></p>
+		<p id="translation_ru" class="h4 well"></p>
+		<p id="translation_uk" class="h4 well"></p>	
+		<p id="translation_en_us" class="h4 well"></p>
+		<p id="translation_en" class="h4 well"></p>
 	</div>
 	<script src="js/model.js"></script>
-	<script src="js/global.js"></script>
 	<script src="js/translateNumber.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>
 	<script src="js/splitNumber.js"></script>
 	<script src="js/isValid.js"></script>
+	<script src="js/global.js"></script>
 </body>
 </html>
