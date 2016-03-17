@@ -1,5 +1,6 @@
 var elementTheme = document.getElementById('theme-link');
 var selectTheme = document.getElementsByName('selectTheme')[0];
+var fileInput = document.getElementById('fileInput');
 
 document.forms[0].number.oninput = function() {
     document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru');
@@ -26,4 +27,18 @@ selectTheme.onchange = function() {
 if (localStorage.actualTheme) {
     selectTheme.value = localStorage.actualTheme;
     selectTheme.onchange();
+}
+
+fileInput.onchange = function() {
+    if (this.files[0] && this.files[0].type === "text/plain") {
+        var reader = new FileReader();
+
+        reader.onload = function() {
+            var result = reader.result;
+            document.forms[0].number.value = result;
+            document.forms[0].number.oninput();
+        }
+
+        reader.readAsText(this.files[0]);
+    }
 }
