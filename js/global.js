@@ -1,12 +1,24 @@
 var elementTheme = document.getElementById('theme-link');
 var selectTheme = document.getElementsByName('selectTheme')[0];
 var fileInput = document.getElementById('fileInput');
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].onchange = function() {
+        var number = document.forms[0].number.value;
+        if (this.checked && number !== '') {
+            document.getElementById('translation_' + this.value).textContent = translateNumber(number, this.value);
+        } else {
+            document.getElementById('translation_' + this.value).textContent = '';
+        }
+    }
+}
 
 document.forms[0].number.oninput = function() {
-    document.getElementById('translation_ru').textContent = translateNumber(this.value, 'ru');
-    document.getElementById('translation_uk').textContent = translateNumber(this.value, 'uk');
-    document.getElementById('translation_en_us').textContent = translateNumber(this.value, 'en-us');
-    document.getElementById('translation_en').textContent = translateNumber(this.value, 'en');
+    var checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    for (var i = 0; i < checkedCheckboxes.length; i++) {
+        document.getElementById('translation_' + checkedCheckboxes[i].value).textContent = translateNumber(this.value, checkedCheckboxes[i].value); 
+    }
     if (typeof Number(this.value) === 'number' &&  this.value != localStorage.number) {
         localStorage.number = this.value;
     }
