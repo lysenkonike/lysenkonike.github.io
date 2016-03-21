@@ -2,14 +2,20 @@ var elementTheme = document.getElementById('theme-link');
 var selectTheme = document.getElementsByName('selectTheme')[0];
 var fileInput = document.getElementById('fileInput');
 var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+var translationBlocks = document.getElementsByClassName('translation');
+
+for (var i = 0; i < translationBlocks.length; i++) {
+    translationBlocks[i].style.display = checkboxes[i].checked ? "" : "none";
+}
 
 for (var i = 0; i < checkboxes.length; i++) {
     checkboxes[i].onchange = function() {
         var number = document.forms[0].number.value;
-        if (this.checked && number !== '') {
+        if (this.checked) {
             document.getElementById('translation_' + this.value).textContent = translateNumber(number, this.value);
+            document.getElementById('translation_' + this.value).style.display = "";
         } else {
-            document.getElementById('translation_' + this.value).textContent = '';
+            document.getElementById('translation_' + this.value).style.display = "none";
         }
     }
 }
