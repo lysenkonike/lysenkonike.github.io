@@ -1,8 +1,9 @@
-var elementTheme = document.getElementById('theme-link');
-var selectTheme = document.getElementsByName('selectTheme')[0];
-var fileInput = document.getElementById('fileInput');
-var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-var translationBlocks = document.getElementsByClassName('translation');
+var themeLink = document.getElementById('theme-link'),
+    themeSelect = document.getElementsByName('themeSelect')[0],
+    fileInput = document.getElementById('fileInput'),
+    numberInput = document.forms[0].number,
+    checkboxes = document.querySelectorAll('input[type="checkbox"]'),
+    translationBlocks = document.getElementsByClassName('translation');
 
 for (var i = 0; i < translationBlocks.length; i++) {
     translationBlocks[i].style.display = checkboxes[i].checked ? "" : "none";
@@ -10,9 +11,8 @@ for (var i = 0; i < translationBlocks.length; i++) {
 
 for (var i = 0; i < checkboxes.length; i++) {
     checkboxes[i].onchange = function() {
-        var number = document.forms[0].number.value;
         if (this.checked) {
-            document.getElementById('translation_' + this.value).textContent = translateNumber(number, this.value);
+            document.getElementById('translation_' + this.value).textContent = translateNumber(numberInput.value, this.value);
             document.getElementById('translation_' + this.value).style.display = "";
         } else {
             document.getElementById('translation_' + this.value).style.display = "none";
@@ -20,7 +20,7 @@ for (var i = 0; i < checkboxes.length; i++) {
     }
 }
 
-document.forms[0].number.oninput = function() {
+numberInput.oninput = function() {
     var checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
     for (var i = 0; i < checkedCheckboxes.length; i++) {
         document.getElementById('translation_' + checkedCheckboxes[i].value).textContent = translateNumber(this.value, checkedCheckboxes[i].value); 
@@ -31,20 +31,20 @@ document.forms[0].number.oninput = function() {
 }
 
 if (localStorage.number) {
-    document.forms[0].number.value = localStorage.number;
-    document.forms[0].number.oninput();
+    numberInput.value = localStorage.number;
+    numberInput.oninput();
 }
 
-selectTheme.onchange = function() {
-    elementTheme.href = 'vendor/' + this.value + '-theme.css';
-    if (this.value != localStorage.actualTheme) {
-        localStorage.actualTheme = this.value;
+themeSelect.onchange = function() {
+    themeLink.href = 'vendor/' + this.value + '-theme.css';
+    if (this.value != localStorage.theme) {
+        localStorage.theme = this.value;
     }
 }
 
-if (localStorage.actualTheme) {
-    selectTheme.value = localStorage.actualTheme;
-    selectTheme.onchange();
+if (localStorage.theme) {
+    themeSelect.value = localStorage.theme;
+    themeSelect.onchange();
 }
 
 fileInput.onchange = function() {
@@ -53,8 +53,8 @@ fileInput.onchange = function() {
 
         reader.onload = function() {
             var result = reader.result;
-            document.forms[0].number.value = result;
-            document.forms[0].number.oninput();
+            numberInput.value = result;
+            numberInput.oninput();
         }
 
         reader.readAsText(this.files[0]);
