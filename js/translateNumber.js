@@ -1,5 +1,5 @@
 function translateNumber(number, lang) {
-    if (!isValid(number) || number.toString().length > 24 || /^0+/.test(number)) {
+    if (!isValid(number) || number.toString().length > 24 || /^0+/.test(number) || /^[' ']+/.test(number)) {
         return '';
     }
 
