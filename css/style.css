@@ -1,42 +1,64 @@
 input[type="checkbox"] + label > span.flag {
 	display: block;
 	width: 48px;
-	height: 48px;
+	height: 36px;
 	cursor: pointer;
 }
 
-span.flag:hover {
+label > span.flag:hover {
 	box-shadow: 0 0 10px 3px #00aaff;
 }
 
 #toggle_en_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat 0px 0px;
+	background: url('../images/flags.png') no-repeat 0 -6px;
 }
 
 #toggle_en_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat 0px -48px;
+	background: url('../images/flags.png') no-repeat 0 -54px;
 }
 
 #toggle_en_us_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -72px 0px;
+	background: url('../images/flags.png') no-repeat -72px -6px;
 }
 
 #toggle_en_us_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -72px -48px;
+	background: url('../images/flags.png') no-repeat -72px -54px;
 }
 
 #toggle_ru_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -144px 0px;
+	background: url('../images/flags.png') no-repeat -144px -6px;
 }
 
 #toggle_ru_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -144px -48px;
+	background: url('../images/flags.png') no-repeat -144px -54px;
 }
 
 #toggle_ua_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -216px 0px;
+	background: url('../images/flags.png') no-repeat -216px -6px;
 }
 
 #toggle_ua_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -216px -48px;
+	background: url('../images/flags.png') no-repeat -216px -54px;
+}
+
+span.flag {
+	display: block;
+	width: 48px;
+	height: 36px;
+}
+
+span.en.flag {
+	background: url('../images/flags.png') no-repeat 0 -6px;
+}
+
+span.en-us.flag {
+	background: url('../images/flags.png') no-repeat -72px -6px;
+}
+
+span.ru.flag{
+	background: url('../images/flags.png') no-repeat -144px -6px;
+}
+
+span.uk.flag {
+	background: url('../images/flags.png') no-repeat -216px -6px;
 }

@@ -13,9 +13,9 @@ for (var i = 0; i < checkboxes.length; i++) {
     checkboxes[i].onchange = function() {
         if (this.checked) {
             document.getElementById('translation_' + this.value).textContent = translateNumber(numberInput.value, this.value);
-            document.getElementById('translation_' + this.value).style.display = "";
+            document.getElementById('translation-block-' + this.value).style.display = "";
         } else {
-            document.getElementById('translation_' + this.value).style.display = "none";
+            document.getElementById('translation-block-' + this.value).style.display = "none";
         }
     }
 }
