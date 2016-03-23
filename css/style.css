@@ -40,3 +40,27 @@ span.flag:hover {
 #toggle_ua_translation:checked + label > span.flag {
 	background: url('../images/flags.png') no-repeat -216px -54px;
 }
+
+.flag-en, .flag-en-us, .flag-ru, .flag-uk {
+	margin-left: 15%;
+	margin-top: 15%;
+	display: block;
+	width: 48px;
+	height: 36px;
+}
+
+.flag-en {
+	background: url('../images/flags.png') no-repeat 0px -6px;
+}
+
+.flag-en-us {
+	background: url('../images/flags.png') no-repeat -72px -6px;
+}
+
+.flag-ru {
+	background: url('../images/flags.png') no-repeat -144px -6px;
+}
+
+.flag-uk {
+	background: url('../images/flags.png') no-repeat -216px -6px;
+}
