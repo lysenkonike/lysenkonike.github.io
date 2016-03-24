@@ -1,6 +1,6 @@
 input[type="checkbox"] + label > span.flag {
 	display: block;
-	width: 48px;
+	width: 46px;
 	height: 34px;
 	cursor: pointer;
 }
@@ -10,33 +10,33 @@ span.flag:hover {
 }
 
 #toggle_en_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat 0px -7px;
+	background: url('../images/flags.png') no-repeat -1px -7px;
 }
 
 #toggle_en_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat 0px -55px;
+	background: url('../images/flags.png') no-repeat -1px -55px;
 }
 
 #toggle_en_us_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -72px -7px;
+	background: url('../images/flags.png') no-repeat -73px -7px;
 }
 
 #toggle_en_us_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -72px -55px;
+	background: url('../images/flags.png') no-repeat -73px -55px;
 }
 
 #toggle_ru_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -144px -7px;
+	background: url('../images/flags.png') no-repeat -145px -7px;
 }
 
 #toggle_ru_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -144px -55px;
+	background: url('../images/flags.png') no-repeat -145px -55px;
 }
 
 #toggle_ua_translation + label > span.flag {
-	background: url('../images/flags.png') no-repeat -216px -7px;
+	background: url('../images/flags.png') no-repeat -217px -7px;
 }
 
 #toggle_ua_translation:checked + label > span.flag {
-	background: url('../images/flags.png') no-repeat -216px -55px;
+	background: url('../images/flags.png') no-repeat -217px -55px;
 }
