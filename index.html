@@ -14,20 +14,44 @@
 	<div class="row">
 		<div class="form-group">
 			<div class="form-group col-xs-1">
-				<input type="checkbox" class="hidden" id="toggle_en_translation" value="en" checked="checked">
-				<label for="toggle_en_translation"><span class="flag"></span></label>
+				<div class="checkbox">
+					<input type="checkbox" class="hidden" id="en_checkbox" value="en" checked="checked">
+					<label for="en_checkbox"><span class="flag"></span></label>
+				</div>
+				<div class="radio" style="display:none">
+					<input type="radio" class="hidden" name="radio" id="en_radio" value="en" checked="checked">
+					<label for="en_radio"><span class="flag"></span></label>
+				</div>
 			</div>
 			<div class="form-group col-xs-1">
-				<input type="checkbox" class="hidden" id="toggle_en_us_translation" value="en-us">
-				<label for="toggle_en_us_translation"><span class="flag"></span></label>
+				<div class="checkbox">
+					<input type="checkbox" class="hidden" id="en_us_checkbox" value="en-us">
+					<label for="en_us_checkbox"><span class="flag"></span></label>
+				</div>
+				<div class="radio" style="display:none">
+					<input type="radio" class="hidden" name="radio" id="en_us_radio" value="en-us">
+					<label for="en_us_radio"><span class="flag"></span></label>
+				</div>
 			</div>
 			<div class="form-group col-xs-1">
-				<input type="checkbox" class="hidden" id="toggle_ru_translation" value="ru">
-				<label for="toggle_ru_translation"><span class="flag"></span></label>
+				<div class="checkbox">
+					<input type="checkbox" class="hidden" id="ru_checkbox" value="ru">
+					<label for="ru_checkbox"><span class="flag"></span></label>
+				</div>
+				<div class="radio" style="display:none">
+					<input type="radio" class="hidden" name="radio" id="ru_radio" value="ru">
+					<label for="ru_radio"><span class="flag"></span></label>
+				</div>
 			</div>
 			<div class="form-group col-xs-1"> 
-				<input type="checkbox" class="hidden" id="toggle_ua_translation" value="uk">
-				<label for="toggle_ua_translation"><span class="flag"></span></label>
+				<div class="checkbox">
+					<input type="checkbox" class="hidden" id="uk_checkbox" value="uk">
+					<label for="uk_checkbox"><span class="flag"></span></label>
+				</div>
+				<div class="radio" style="display:none">
+					<input type="radio" class="hidden" name="radio" id="uk_radio" value="uk">
+					<label for="uk_radio"><span class="flag"></span></label>
+				</div>
 			</div>
 			<div class="form-group col-xs-2 col-xs-offset-6">
 				<label class="control-label">Theme</label>
@@ -47,8 +71,8 @@
 	<h1 class="h1 text-center text-primary">Translate Number</h1>
 	<div class="container">
 		<ul class="nav nav-tabs nav-justified h4">
-			<li class="active"><a data-toggle="tab" href="#online">Online Translation</a></li>
-			<li><a data-toggle="tab" href="#file">Translate File</a></li>
+			<li class="active"><a data-toggle="tab" href="#online" value="online">Online Translation</a></li>
+			<li><a data-toggle="tab" href="#file" value="file">Translate File</a></li>
 		</ul>
 		<div class="tab-content">
 			<div id="online" class="tab-pane fade in active">
@@ -58,21 +82,24 @@
 						<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" maxlength="24">
 					</div>
 				</form>
+				<br>
+				<div class="well">
+					<p id="translation_en" class="h4 well translation"></p>
+					<p id="translation_en-us" class="h4 well translation"></p>
+					<p id="translation_ru" class="h4 well translation"></p>
+					<p id="translation_uk" class="h4 well translation"></p>	
+				</div>
 			</div>
 			<div id="file" class="tab-pane fade">
 				<label class="control-label">File</label>
 				<input type="file" id="fileInput" accept="text/plain">
+				<p id="contentFile"></p>
+				<p id="translationFile"></p>
+				<!-- <input type="text" id="contintFile"> -->
 			</div>
 		</div>
 	</div>
 	<br>
-	<br>
-	<div class="well">
-		<p id="translation_en" class="h4 well translation"></p>
-		<p id="translation_en-us" class="h4 well translation"></p>
-		<p id="translation_ru" class="h4 well translation"></p>
-		<p id="translation_uk" class="h4 well translation"></p>	
-	</div>
 	<script src="js/model.js"></script>
 	<script src="js/translateNumber.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>

@@ -3,7 +3,11 @@ var themeLink = document.getElementById('theme-link'),
     fileInput = document.getElementById('fileInput'),
     numberInput = document.forms[0].number,
     checkboxes = document.querySelectorAll('input[type="checkbox"]'),
-    translationBlocks = document.getElementsByClassName('translation');
+    radio = document.querySelectorAll('input[type="radio"]'),
+    radioLang = document.querySelector('input[type="radio"]:checked').value;
+    contentFile = document.getElementById('contentFile'),
+    translationBlocks = document.getElementsByClassName('translation'),
+    translationFileBlock = document.getElementById('translationFile');
 
 for (var i = 0; i < translationBlocks.length; i++) {
     translationBlocks[i].style.display = checkboxes[i].checked ? "" : "none";
@@ -53,10 +57,38 @@ fileInput.onchange = function() {
 
         reader.onload = function() {
             var result = reader.result;
-            numberInput.value = result;
-            numberInput.oninput();
+            contentFile.textContent = result;
+            translationFileBlock.textContent = translateNumber(result, radioLang);
         }
 
         reader.readAsText(this.files[0]);
+    }
+}
+
+var tabs = document.querySelectorAll('a[data-toggle="tab"]');
+var checkboxDiv = document.querySelectorAll('div.checkbox');
+var radioDiv = document.querySelectorAll('div.radio');
+
+for (var i = 0; i < tabs.length; i++) {
+    tabs[i].onclick = function () {
+        if(/online$/.test(this.href)){
+            for (var i = 0; i < radioDiv.length; i++) {
+                radioDiv[i].style.display = "none";
+                checkboxDiv[i].style.display = "";
+            }
+        } else if (/file$/.test(this.href)) {
+            for (var i = 0; i < checkboxDiv.length; i++) {
+                checkboxDiv[i].style.display = "none";
+                radioDiv[i].style.display = "";
+            }
+        }
+    }
+}
+
+for (var i = 0; i < radio.length; i++) {
+    radio[i].onchange = function() {
+        if (this.checked) {
+            translationFileBlock.textContent = translateNumber(contentFile.textContent, this.value)
+        }
     }
 }
