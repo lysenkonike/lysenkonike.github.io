@@ -21,6 +21,7 @@ span.flag:hover {
 }
 
  #en_checkbox:checked + label > span.flag {
+ 	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -1px -55px;
 }
 
@@ -29,6 +30,7 @@ span.flag:hover {
 }
 
 #en_us_checkbox:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -73px -55px;
 }
 
@@ -37,6 +39,7 @@ span.flag:hover {
 }
 
 #ru_checkbox:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -145px -55px;
 }
 
@@ -45,6 +48,7 @@ span.flag:hover {
 }
 
 #uk_checkbox:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -217px -55px;
 }
 
@@ -53,6 +57,7 @@ span.flag:hover {
 }
 
  #en_radio:checked + label > span.flag {
+ 	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -1px -55px;
 }
 
@@ -61,6 +66,7 @@ span.flag:hover {
 }
 
 #en_us_radio:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -73px -55px;
 }
 
@@ -69,6 +75,7 @@ span.flag:hover {
 }
 
 #ru_radio:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -145px -55px;
 }
 
@@ -77,5 +84,6 @@ span.flag:hover {
 }
 
 #uk_radio:checked + label > span.flag {
+	box-shadow: 0 0 10px 3px #00aaff;
 	background: url('../images/flags.png') no-repeat -217px -55px;
 }

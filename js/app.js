@@ -4,9 +4,9 @@ var themeLink = document.getElementById('theme-link'),
     numberInput = document.forms[0].number,
     checkboxes = document.querySelectorAll('input[type="checkbox"]'),
     radio = document.querySelectorAll('input[type="radio"]'),
-    radioLang = document.querySelector('input[type="radio"]:checked').value;
     contentFile = document.getElementById('contentFile'),
     translationBlocks = document.getElementsByClassName('translation'),
+    navTabs = document.querySelectorAll('a[data-toggle="tab"]'),
     translationFileBlock = document.getElementById('translationFile');
 
 for (var i = 0; i < translationBlocks.length; i++) {
@@ -58,29 +58,22 @@ fileInput.onchange = function() {
         reader.onload = function() {
             var result = reader.result;
             contentFile.textContent = result;
-            translationFileBlock.textContent = translateNumber(result, radioLang);
+            lang = document.querySelector('input[type="radio"]:checked').value;
+            translationFileBlock.textContent = translateNumber(result, lang);
         }
 
         reader.readAsText(this.files[0]);
     }
 }
 
-var tabs = document.querySelectorAll('a[data-toggle="tab"]');
-var checkboxDiv = document.querySelectorAll('div.checkbox');
-var radioDiv = document.querySelectorAll('div.radio');
-
-for (var i = 0; i < tabs.length; i++) {
-    tabs[i].onclick = function () {
+for (var i = 0; i < navTabs.length; i++) {
+    navTabs[i].onclick = function () {
         if(/online$/.test(this.href)){
-            for (var i = 0; i < radioDiv.length; i++) {
-                radioDiv[i].style.display = "none";
-                checkboxDiv[i].style.display = "";
-            }
+            document.querySelector('div.radio').style.display = "none";
+            document.querySelector('div.checkbox').style.display = "";
         } else if (/file$/.test(this.href)) {
-            for (var i = 0; i < checkboxDiv.length; i++) {
-                checkboxDiv[i].style.display = "none";
-                radioDiv[i].style.display = "";
-            }
+            document.querySelector('div.checkbox').style.display = "none";
+            document.querySelector('div.radio').style.display = "";
         }
     }
 }

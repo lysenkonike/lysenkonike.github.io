@@ -13,42 +13,38 @@
 <body class="well">
 	<div class="row">
 		<div class="form-group">
-			<div class="form-group col-xs-1">
-				<div class="checkbox">
+			<div class="form-group checkbox">
+				<div class="form-group col-xs-1">
 					<input type="checkbox" class="hidden" id="en_checkbox" value="en" checked="checked">
 					<label for="en_checkbox"><span class="flag"></span></label>
 				</div>
-				<div class="radio" style="display:none">
-					<input type="radio" class="hidden" name="radio" id="en_radio" value="en" checked="checked">
-					<label for="en_radio"><span class="flag"></span></label>
-				</div>
-			</div>
-			<div class="form-group col-xs-1">
-				<div class="checkbox">
+				<div class="form-group col-xs-1">
 					<input type="checkbox" class="hidden" id="en_us_checkbox" value="en-us">
 					<label for="en_us_checkbox"><span class="flag"></span></label>
 				</div>
-				<div class="radio" style="display:none">
-					<input type="radio" class="hidden" name="radio" id="en_us_radio" value="en-us">
-					<label for="en_us_radio"><span class="flag"></span></label>
-				</div>
-			</div>
-			<div class="form-group col-xs-1">
-				<div class="checkbox">
+				<div class="form-group col-xs-1">
 					<input type="checkbox" class="hidden" id="ru_checkbox" value="ru">
 					<label for="ru_checkbox"><span class="flag"></span></label>
 				</div>
-				<div class="radio" style="display:none">
-					<input type="radio" class="hidden" name="radio" id="ru_radio" value="ru">
-					<label for="ru_radio"><span class="flag"></span></label>
-				</div>
-			</div>
-			<div class="form-group col-xs-1"> 
-				<div class="checkbox">
+				<div class="form-group col-xs-1"> 
 					<input type="checkbox" class="hidden" id="uk_checkbox" value="uk">
 					<label for="uk_checkbox"><span class="flag"></span></label>
 				</div>
-				<div class="radio" style="display:none">
+			</div>
+			<div class="form-group radio" style="display:none">
+				<div class="form-group col-xs-1">
+					<input type="radio" class="hidden" name="radio" id="en_radio" value="en" checked="checked">
+					<label for="en_radio"><span class="flag"></span></label>
+				</div>
+				<div class="form-group col-xs-1">
+					<input type="radio" class="hidden" name="radio" id="en_us_radio" value="en-us">
+					<label for="en_us_radio"><span class="flag"></span></label>
+				</div>
+				<div class="form-group col-xs-1">
+					<input type="radio" class="hidden" name="radio" id="ru_radio" value="ru">
+					<label for="ru_radio"><span class="flag"></span></label>
+				</div>
+				<div class="form-group col-xs-1">
 					<input type="radio" class="hidden" name="radio" id="uk_radio" value="uk">
 					<label for="uk_radio"><span class="flag"></span></label>
 				</div>
@@ -78,7 +74,7 @@
 			<div id="online" class="tab-pane fade in active">
 				<form role="form">
 					<div class="form-group">
-					<label class="control-label">Number</label>
+						<label class="control-label">Number</label>
 						<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" maxlength="24">
 					</div>
 				</form>
@@ -91,15 +87,25 @@
 				</div>
 			</div>
 			<div id="file" class="tab-pane fade">
-				<label class="control-label">File</label>
-				<input type="file" id="fileInput" accept="text/plain">
-				<p id="contentFile"></p>
-				<p id="translationFile"></p>
-				<!-- <input type="text" id="contintFile"> -->
+				<form role="form" class="row">
+					<div class="form-group col-xs-3">
+						<label for="fileInput" class="control-label">File</label>
+						<input type="file" id="fileInput" class="form-control" accept="text/plain">
+					</div>
+					<div class="form-group col-xs-3">
+						<label for="contentFile" class="control-label">Content File</label><br>
+						<textarea id="contentFile" class="form-control" rows="1" readonly></textarea>
+					</div>
+				</form>
+				<br>
+				<div class="row">
+					<div class="well">
+						<p id="translationFile"></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<br>
 	<script src="js/model.js"></script>
 	<script src="js/translateNumber.js"></script>
 	<script src="js/translateThreeDigitNumber.js"></script>
