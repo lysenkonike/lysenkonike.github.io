@@ -3,7 +3,11 @@ var themeLink = document.getElementById('theme-link'),
     fileInput = document.getElementById('fileInput'),
     numberInput = document.forms[0].number,
     checkboxes = document.querySelectorAll('input[type="checkbox"]'),
-    translationBlocks = document.getElementsByClassName('translation');
+    radio = document.querySelectorAll('input[type="radio"]'),
+    contentFile = document.getElementById('contentFile'),
+    translationBlocks = document.getElementsByClassName('translation'),
+    navTabs = document.querySelectorAll('a[data-toggle="tab"]'),
+    translationFileBlock = document.getElementById('translationFile');
 
 for (var i = 0; i < translationBlocks.length; i++) {
     translationBlocks[i].style.display = checkboxes[i].checked ? "" : "none";
@@ -53,10 +57,31 @@ fileInput.onchange = function() {
 
         reader.onload = function() {
             var result = reader.result;
-            numberInput.value = result;
-            numberInput.oninput();
+            contentFile.textContent = result;
+            lang = document.querySelector('input[type="radio"]:checked').value;
+            translationFileBlock.textContent = translateNumber(result, lang);
         }
 
         reader.readAsText(this.files[0]);
+    }
+}
+
+for (var i = 0; i < navTabs.length; i++) {
+    navTabs[i].onclick = function () {
+        if(/online$/.test(this.href)){
+            document.querySelector('div.radio').style.display = "none";
+            document.querySelector('div.checkbox').style.display = "";
+        } else if (/file$/.test(this.href)) {
+            document.querySelector('div.checkbox').style.display = "none";
+            document.querySelector('div.radio').style.display = "";
+        }
+    }
+}
+
+for (var i = 0; i < radio.length; i++) {
+    radio[i].onchange = function() {
+        if (this.checked) {
+            translationFileBlock.textContent = translateNumber(contentFile.textContent, this.value)
+        }
     }
 }
