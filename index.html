@@ -1,116 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Тranslate Number</title>
-	<link rel="stylesheet" href="vendor/bootstrap.min.css">
-	<link rel="stylesheet" id="theme-link" href="vendor/yeti-theme.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<script src="vendor/jquery-1.12.2.min.js"></script>
-	<script src="vendor/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Тranslate Number</title>
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" id="theme-link" href="vendor/yeti-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="vendor/jquery-1.12.2.min.js"></script>
+    <script src="vendor/bootstrap.min.js"></script>
 </head>
 <body class="well">
-	<div class="row">
-		<div class="form-group">
-			<div class="form-group checkbox">
-				<div class="form-group col-xs-1">
-					<input type="checkbox" class="hidden" id="en_checkbox" value="en" checked="checked">
-					<label for="en_checkbox"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1">
-					<input type="checkbox" class="hidden" id="en_us_checkbox" value="en-us">
-					<label for="en_us_checkbox"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1">
-					<input type="checkbox" class="hidden" id="ru_checkbox" value="ru">
-					<label for="ru_checkbox"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1"> 
-					<input type="checkbox" class="hidden" id="uk_checkbox" value="uk">
-					<label for="uk_checkbox"><span class="flag"></span></label>
-				</div>
-			</div>
-			<div class="form-group radio" style="display:none">
-				<div class="form-group col-xs-1">
-					<input type="radio" class="hidden" name="radio" id="en_radio" value="en" checked="checked">
-					<label for="en_radio"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1">
-					<input type="radio" class="hidden" name="radio" id="en_us_radio" value="en-us">
-					<label for="en_us_radio"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1">
-					<input type="radio" class="hidden" name="radio" id="ru_radio" value="ru">
-					<label for="ru_radio"><span class="flag"></span></label>
-				</div>
-				<div class="form-group col-xs-1">
-					<input type="radio" class="hidden" name="radio" id="uk_radio" value="uk">
-					<label for="uk_radio"><span class="flag"></span></label>
-				</div>
-			</div>
-			<div class="form-group col-xs-2 col-xs-offset-6">
-				<label class="control-label">Theme</label>
-				<select class="form-control" name="themeSelect">
-					<option value="yeti">Yeti</option>
-					<option value="simplex">Simplex</option>
-					<option value="cyborg">Cyborg</option>
-					<option value="superhero">Superhero</option>
-					<option value="united">United</option>
-					<option value="slate">Slate</option>
-					<option value="darkly">Darkly</option>
-					<option value="spacelab">Spacelab</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	<h1 class="h1 text-center text-primary">Translate Number</h1>
-	<div class="container">
-		<ul class="nav nav-tabs nav-justified h4">
-			<li class="active"><a data-toggle="tab" href="#online" value="online">Online Translation</a></li>
-			<li><a data-toggle="tab" href="#file" value="file">Translate File</a></li>
-		</ul>
-		<div class="tab-content">
-			<div id="online" class="tab-pane fade in active">
-				<form role="form">
-					<div class="form-group">
-						<label class="control-label">Number</label>
-						<input name="number" class="form-control input-lg" type="text" autofocus placeholder="Введите число" maxlength="24">
-					</div>
-				</form>
-				<br>
-				<div class="well">
-					<p id="translation_en" class="h4 well translation"></p>
-					<p id="translation_en-us" class="h4 well translation"></p>
-					<p id="translation_ru" class="h4 well translation"></p>
-					<p id="translation_uk" class="h4 well translation"></p>	
-				</div>
-			</div>
-			<div id="file" class="tab-pane fade">
-				<form role="form" class="row">
-					<div class="form-group col-xs-3">
-						<label for="fileInput" class="control-label">File</label>
-						<input type="file" id="fileInput" class="form-control" accept="text/plain">
-					</div>
-					<div class="form-group col-xs-3">
-						<label for="contentFile" class="control-label">Content File</label><br>
-						<textarea id="contentFile" class="form-control" rows="1" readonly></textarea>
-					</div>
-				</form>
-				<br>
-				<div class="row">
-					<div class="well">
-						<p id="translationFile"></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="js/model.js"></script>
-	<script src="js/translateNumber.js"></script>
-	<script src="js/translateThreeDigitNumber.js"></script>
-	<script src="js/splitNumber.js"></script>
-	<script src="js/isValid.js"></script>
-	<script src="js/app.js"></script>
+    <div class="row">
+        <div class="form-group">
+            <div class="form-group checkbox">
+                <div class="form-group col-xs-1">
+                    <input type="checkbox" class="hidden" id="en_checkbox" value="en" checked="checked">
+                    <label for="en_checkbox"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="checkbox" class="hidden" id="en_us_checkbox" value="en-us">
+                    <label for="en_us_checkbox"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="checkbox" class="hidden" id="ru_checkbox" value="ru">
+                    <label for="ru_checkbox"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="checkbox" class="hidden" id="uk_checkbox" value="uk">
+                    <label for="uk_checkbox"><span class="flag"></span></label>
+                </div>
+            </div>
+            <div class="form-group radio" style="display:none">
+                <div class="form-group col-xs-1">
+                    <input type="radio" class="hidden" name="radio" id="en_radio" value="en" checked="checked">
+                    <label for="en_radio"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="radio" class="hidden" name="radio" id="en_us_radio" value="en-us">
+                    <label for="en_us_radio"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="radio" class="hidden" name="radio" id="ru_radio" value="ru">
+                    <label for="ru_radio"><span class="flag"></span></label>
+                </div>
+                <div class="form-group col-xs-1">
+                    <input type="radio" class="hidden" name="radio" id="uk_radio" value="uk">
+                    <label for="uk_radio"><span class="flag"></span></label>
+                </div>
+            </div>
+            <div class="form-group col-xs-2 col-xs-offset-6">
+                <label class="control-label">Theme</label>
+                <select class="form-control" name="themeSelect">
+                    <option value="yeti">Yeti</option>
+                    <option value="simplex">Simplex</option>
+                    <option value="cyborg">Cyborg</option>
+                    <option value="superhero">Superhero</option>
+                    <option value="united">United</option>
+                    <option value="slate">Slate</option>
+                    <option value="darkly">Darkly</option>
+                    <option value="spacelab">Spacelab</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <h1 class="h1 text-center text-primary">Translate Number</h1>
+    <div class="container">
+        <ul class="nav nav-tabs nav-justified h4">
+            <li class="active"><a data-toggle="tab" href="#online" value="online">Online Translation</a></li>
+            <li><a data-toggle="tab" href="#file" value="file">Translate File</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="online" class="tab-pane fade in active">
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label">Number</label>
+                        <input name="number" class="form-control input-lg" type="text" autofocus placeholder="Enter the number"
+                        maxlength="24">
+                    </div>
+                </form>
+                <br>
+                <div class="well">
+                    <p id="translation_en" class="h4 well translation"></p>
+                    <p id="translation_en-us" class="h4 well translation"></p>
+                    <p id="translation_ru" class="h4 well translation"></p>
+                    <p id="translation_uk" class="h4 well translation"></p>
+                </div>
+            </div>
+            <div id="file" class="tab-pane fade">
+                <form role="form" class="row">
+                    <div class="form-group col-xs-3">
+                        <label for="fileInput" class="control-label">File</label>
+                        <input type="file" id="fileInput" class="form-control" accept="text/plain">
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <label for="contentFile" class="control-label">Content File</label><br>
+                        <textarea id="contentFile" class="form-control" rows="1" readonly></textarea>
+                    </div>
+                </form>
+                <br>
+                <div class="row">
+                    <div class="well">
+                        <p id="translationFile"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/model.js"></script>
+    <script src="js/translateNumber.js"></script>
+    <script src="js/translateThreeDigitNumber.js"></script>
+    <script src="js/splitNumber.js"></script>
+    <script src="js/isValid.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
